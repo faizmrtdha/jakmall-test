@@ -1,7 +1,7 @@
 import React from "react"
 
 const PaymentDetails = () => {
-  return <div>PaymentDetails</div>
+  return <div>Paymnet</div>
 }
 
 export default PaymentDetails

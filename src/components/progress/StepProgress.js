@@ -35,9 +35,9 @@ const StepProgress = ({ item: stepItem, current }) => {
   return (
     <StyledStepProgress>
       {stepItem.map((item) => (
-        <div className="stepProgress__wrapper">
+        <div className="stepProgress__wrapper" key={item.step}>
           <StyledStepProgressIcon active={current === item.step}>
-            <div className="roundedRectangle">{item.step}</div>
+            <div className="roundedRectangle">{item.step + 1}</div>
           </StyledStepProgressIcon>
           <div className="stepProgress__title">{item.title}</div>
           {item.step !== stepItem.length && <ArrowForwardIos htmlColor="#FF8A00" />}
