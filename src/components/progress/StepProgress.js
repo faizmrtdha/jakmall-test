@@ -1,5 +1,5 @@
-import { ArrowForwardIos } from "@mui/icons-material"
 import React from "react"
+import { MdKeyboardArrowRight } from "react-icons/md"
 import styled from "styled-components"
 
 const StyledStepProgress = styled.div`
@@ -40,7 +40,7 @@ const StepProgress = ({ item: stepItem, current }) => {
             <div className="roundedRectangle">{item.step + 1}</div>
           </StyledStepProgressIcon>
           <div className="stepProgress__title">{item.title}</div>
-          {item.step !== stepItem.length && <ArrowForwardIos htmlColor="#FF8A00" />}
+          {item.step !== stepItem.length && <MdKeyboardArrowRight color="#FF8A00" />}
         </div>
       ))}
     </StyledStepProgress>
