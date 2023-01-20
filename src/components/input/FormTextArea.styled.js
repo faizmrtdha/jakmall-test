@@ -33,8 +33,11 @@ export const FormTextAreaStyled = styled.div`
     background: transparent;
     outline: 0;
     resize: none;
-    max-height: 120px;
+    height: 120px;
     overflow: auto;
+    padding: 30px 15px 0 15px;
+    z-index: 1;
+    font-family: "Inter", sans-serif;
   }
 
   textarea::placeholder {
@@ -48,7 +51,6 @@ export const FormTextAreaStyled = styled.div`
 
   textarea:focus {
     /* border-color: ${(props) => (props.valid ? "#1BD97B" : "#FF8A00")}; */
-    padding: 20px 15px 0 15px;
   }
 
   textarea:focus ~ .label {
@@ -61,8 +63,14 @@ export const FormTextAreaStyled = styled.div`
     font-size: 13px;
   }
 
-  .input_field:required,
-  .input__field:invalid {
+  textarea:not(:placeholder-shown) ~ .label {
+    top: 12px;
+    font-size: 13px;
+    z-index: 2;
+  }
+
+  textarea:required,
+  textarea:invalid {
     box-shadow: none;
   }
 `

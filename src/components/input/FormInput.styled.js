@@ -20,7 +20,6 @@ export const FormInputStyled = styled.div`
     font-size: 16px;
     line-height: 19px;
     font-weight: 500;
-    transform-origin: 0% 0%;
     padding-left: 15px;
   }
 
@@ -33,18 +32,9 @@ export const FormInputStyled = styled.div`
     line-height: 19px;
     background: transparent;
     outline: 0;
+    padding: 20px 15px 0 15px;
+    z-index: 1;
   }
-
-  /* input {
-    font-size: 16px;
-    font-weight: 700;
-    height: 60px;
-    width: 100%;
-    border: 1px solid #cccccc;
-    line-height: 19px;
-    background: transparent;
-    outline: 0;
-  } */
 
   input::placeholder {
     color: transparent;
@@ -53,11 +43,6 @@ export const FormInputStyled = styled.div`
   input:placeholder-shown ~ .label {
     cursor: text;
     top: 20px;
-  }
-
-  input:focus {
-    /* border-color: ${(props) => (props.valid ? "#1BD97B" : "#FF8A00")}; */
-    padding: 20px 15px 0 15px;
   }
 
   input:focus ~ .label {
@@ -70,8 +55,14 @@ export const FormInputStyled = styled.div`
     font-size: 13px;
   }
 
-  .input_field:required,
-  .input__field:invalid {
+  input:not(:placeholder-shown) ~ .label {
+    top: 12px;
+    font-size: 13px;
+    z-index: 2;
+  }
+
+  input:required,
+  input:invalid {
     box-shadow: none;
   }
 `
