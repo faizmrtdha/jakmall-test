@@ -10,6 +10,7 @@ const StyledDeliveryDetailsHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
   h1 {
     font-weight: 700;
     color: #ff8a00;
@@ -59,7 +60,6 @@ const DeliveryDetails = (props) => {
               rules={{
                 required: "Phone number is required",
                 pattern: {
-                  // value: /^(\+62|62|0)12[1-9][0-9]{6,9}$/,
                   value: /^\+?\d{1,4}?[-]?\(?\d{1,3}?\)?[-]?\d{1,4}[-]?\d{1,4}[-]?\d{1,9}$/,
                   message: "Phone number is not valid",
                 },
