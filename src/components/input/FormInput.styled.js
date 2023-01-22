@@ -37,7 +37,6 @@ export const FormInputStyled = styled.div`
     background: transparent;
     outline: 0;
     padding: 20px 15px 0 15px;
-    /* z-index: 1; */
   }
 
   input::placeholder {
@@ -58,7 +57,7 @@ export const FormInputStyled = styled.div`
     top: 12px;
     display: block;
     transition: 0.2s;
-    color: ${(props) => (props.validation ? "#ffcc70" : "#1BD97B")};
+    color: ${(props) => (props.validation ? "#1BD97B" : "#ffcc70")};
     margin-bottom: 2px;
     font-size: 13px;
   }
