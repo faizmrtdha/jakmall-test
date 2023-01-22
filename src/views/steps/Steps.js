@@ -15,9 +15,11 @@ const BackButton = (props) => {
   const { currentStep, setCurrentStep } = props
   if (currentStep === 2) return ""
   const onBack = () => {
-    if (currentStep === 0) window.location.href = "https://jakmall.com/"
-    else setCurrentStep(currentStep - 1)
+    if (currentStep === 0) {
+      window.location.replace("https://jakmall.com/")
+    } else setCurrentStep(currentStep - 1)
   }
+
   return <Button onClick={onBack}>{currentStep === 0 ? "Back to cart" : "Back to delivery"}</Button>
 }
 
@@ -37,10 +39,6 @@ const Steps = () => {
   const [dataStep1, setDataStep1] = useState({ tncDropshipper: false })
   const [dataStep2, setDataStep2] = useState({ shipment: false, payment: false })
   const [finalPrice, setFinalPrice] = useState(false)
-
-  const gatherFormData = (form, callback) => {
-    form((d) => console.log(d))
-  }
 
   const gatherDelivery = (data) => {
     console.log(data)
@@ -68,7 +66,7 @@ const Steps = () => {
   const stepItem = [
     { title: "Delivery", step: 0, content: <DeliveryDetails {...props} /> },
     { title: "Payment", step: 1, content: <PaymentDetails {...props} /> },
-    { title: "Finish", step: 2, content: <FinishStep /> },
+    { title: "Finish", step: 2, content: <FinishStep {...props} /> },
   ]
 
   return (
