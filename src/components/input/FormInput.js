@@ -2,16 +2,36 @@ import Icon from "components/Icon/Icon"
 import { FormInputStyled } from "components/input/FormInput.styled"
 import React from "react"
 import { MdCheck, MdClear } from "react-icons/md"
+import { setStorage } from "utils/helper"
+
+const IconValidation = ({ valid, value }) => {
+  if (value)
+    return <Icon color={valid ? "#1BD97B" : "#FF8A00"}>{valid ? <MdCheck /> : <MdClear />}</Icon>
+  return ""
+}
 
 const FormInput = ({ form, label, rules, name, ...props }) => {
-  const { register } = form
+  const { register, getValues } = form
+
+  const valueName = getValues(name)
+  const valueForm = getValues()
+  const onChangeInput = ({ target: { value = "" } }) => {
+    setStorage("formData", JSON.stringify({ ...valueForm, [name]: value }))
+  }
+
   return (
-    <FormInputStyled>
-      <input {...props} {...register(name, { ...rules })} />
+    <FormInputStyled {...props}>
+      <input
+        {...register(name, { ...rules, onChange: onChangeInput })}
+        valueinput={valueName}
+        disabled={
+          (name === "dropshipperName" || name === "dropshipperPhoneNumber") && props.disabled
+        }
+        validation={props.validation}
+        {...props}
+      />
       <div className="label">{label}</div>
-      <Icon color={props.valid ? "#1BD97B" : "#FF8A00"}>
-        {props.valid ? <MdCheck /> : <MdClear />}
-      </Icon>
+      <IconValidation value={valueName} valid={props.validation} />
     </FormInputStyled>
   )
 }

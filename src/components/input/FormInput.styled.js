@@ -6,6 +6,9 @@ export const FormInputStyled = styled.div`
   display: flex;
   border: 1px solid #cccccc;
   align-items: center;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 
   span {
     font-size: 18px;
@@ -21,6 +24,7 @@ export const FormInputStyled = styled.div`
     line-height: 19px;
     font-weight: 500;
     padding-left: 15px;
+    pointer-events: none;
   }
 
   input {
@@ -33,7 +37,7 @@ export const FormInputStyled = styled.div`
     background: transparent;
     outline: 0;
     padding: 20px 15px 0 15px;
-    z-index: 1;
+    /* z-index: 1; */
   }
 
   input::placeholder {
@@ -45,12 +49,16 @@ export const FormInputStyled = styled.div`
     top: 20px;
   }
 
+  input:-internal-autofill-selected {
+    background-color: transparent !important;
+  }
+
   input:focus ~ .label {
     position: absolute;
     top: 12px;
     display: block;
     transition: 0.2s;
-    /* color: ${(props) => (props.valid ? "#1BD97B" : "#ffcc70")}; */
+    color: ${(props) => (props.validation ? "#ffcc70" : "#1BD97B")};
     margin-bottom: 2px;
     font-size: 13px;
   }
@@ -58,11 +66,9 @@ export const FormInputStyled = styled.div`
   input:not(:placeholder-shown) ~ .label {
     top: 12px;
     font-size: 13px;
-    z-index: 2;
   }
 
-  input:required,
-  input:invalid {
-    box-shadow: none;
+  input:disabled {
+    cursor: not-allowed;
   }
 `
