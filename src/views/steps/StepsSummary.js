@@ -13,7 +13,7 @@ import {
 } from "./StepsSummary.styled"
 
 const Action = (props) => {
-  const { nextStep, currentStep, deliveryForm, shipmentForm } = props
+  const { nextStep, currentStep, deliveryForm, shipmentForm, dataStep2 } = props
   const { handleSubmit: handleDelivery } = deliveryForm
   const { handleSubmit: handleShipment } = shipmentForm
 
@@ -23,9 +23,15 @@ const Action = (props) => {
     } else if (currentStep === 1) handleShipment(nextStep)()
   }
 
+  if ((currentStep === 1 && !dataStep2.payment) || currentStep === 2) return ""
+
+  const textCurrentStep0 = "Continue to Payment"
+  const textCurrentStep1 =
+    currentStep === 1 && dataStep2.payment && `Pay with ${dataStep2.payment.label}`
+
   return (
     <button type="submit" onClick={clickNext}>
-      Continue to Payment
+      {currentStep === 0 ? textCurrentStep0 : textCurrentStep1}
     </button>
   )
 }
