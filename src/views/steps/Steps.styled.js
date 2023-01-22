@@ -97,6 +97,9 @@ export const FinishContainter = styled.div`
 
 export const HeaderSection = styled.div`
   margin-bottom: 26px;
+  h1 {
+    color: #ff8a00;
+  }
 `
 
 export const BodySection = styled.div`
