@@ -46,14 +46,6 @@ export const ContainerSummary = styled.div`
   padding: 20px 0 20px 30px;
   height: 500px;
 
-  .summaryTitle {
-    color: #ff8a00;
-  }
-  .summaryDesc {
-    font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
-  }
-
   button {
     background: #ff8a00;
     border: 0;
@@ -84,6 +76,27 @@ export const ContainerSummary = styled.div`
 
 export const SummaryBody = styled.div`
   width: 100%;
+
+  .summaryTitle {
+    color: #ff8a00;
+  }
+
+  .summaryDesc {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    p:not(.description) {
+      font-size: 14px;
+    }
+    .description {
+      color: #1bd97b;
+    }
+  }
 `
 
 export const SummaryFooter = styled.div`

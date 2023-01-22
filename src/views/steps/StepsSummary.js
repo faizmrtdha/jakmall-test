@@ -62,7 +62,7 @@ const TotalDisplay = (props) => {
 }
 
 const StepsSummary = (props) => {
-  const { dataStep1, dataStep2, setFinalPrice } = props
+  const { dataStep1, dataStep2, setFinalPrice, currentStep } = props
 
   useEffect(() => {
     const basePrice = 500000
@@ -88,9 +88,20 @@ const StepsSummary = (props) => {
           {dataStep2.shipment && (
             <>
               <Divider />
-              <div>
+              <div className="title">
                 <p>Delivery estimation</p>
-                <p>today by {dataStep2.shipment.label}</p>
+                <p className="description">
+                  {dataStep2.shipment.estimation} by {dataStep2.shipment.label}
+                </p>
+              </div>
+            </>
+          )}
+          {currentStep === 2 && dataStep2.payment && (
+            <>
+              <Divider />
+              <div className="title">
+                <p>Payment method</p>
+                <p className="description">{dataStep2.payment.label}</p>
               </div>
             </>
           )}
