@@ -6,15 +6,16 @@ const FinishStep = (props) => {
   const { dataStep2 } = props
   const randomOrderID = () => {
     const randomId = Math.random().toString(36).slice(2, 7).split("")
-    let id = randomId
-    const checkId = id.filter(
+    const checkId = randomId.filter(
       (char) => char === "1" || char === "I" || char === "0" || char === "O"
     )
     if (checkId.length > 0) randomOrderID()
-    else return id.join("").toUpperCase()
+    else return randomId.join("").toUpperCase()
   }
 
   const onBackHomepage = () => window.location.replace("https://jakmall.com/")
+
+  const id = randomOrderID()
 
   return (
     <FinishContainter className="finishContainer">
@@ -22,7 +23,7 @@ const FinishStep = (props) => {
         <h1>Thank you</h1>
       </HeaderSection>
       <BodySection>
-        <p className="order">Order ID : {randomOrderID()}</p>
+        <p className="order">Order ID : {id}</p>
         <p className="desc">
           Your order will be delivered{" "}
           {`${dataStep2.shipment.estimation} by ${dataStep2.shipment.label}`}
