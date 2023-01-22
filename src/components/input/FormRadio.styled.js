@@ -21,6 +21,7 @@ export const LabelRadio = styled.div`
     line-height: 16px;
     font-weight: 500;
     margin-bottom: 2px;
+    color: rgba(45, 42, 64, 0.6);
   }
   p {
     font-size: 16px;
@@ -37,6 +38,7 @@ export const InputRadio = styled.input.attrs({ type: "radio" })`
       background-color: rgba(27, 217, 123, 0.1);
       border: 2px solid #1bd97b;
 
+      span,
       p {
         color: rgba(45, 42, 64, 1);
       }

@@ -1,6 +1,6 @@
 import React from "react"
 import { MdCheck } from "react-icons/md"
-import { IconRadio, InputRadio, LabelRadio, RadioWrapper } from "./FormRadio.styled"
+import { IconRadio, InputRadio, LabelRadio } from "./FormRadio.styled"
 
 const FormRadioButton = ({ label, price, selected, onClick, form, name }) => {
   const { register } = form
@@ -12,12 +12,12 @@ const FormRadioButton = ({ label, price, selected, onClick, form, name }) => {
         for={name}
         value={label}
         checked={isSelected}
-        {...register(name, { onChange: onClick })}
+        {...register(name, { onChange: onClick, required: "Must be filled!" })}
       />
       <LabelRadio>
         <div>
           <span>{label}</span>
-          <p>{price.toLocaleString("en-US")}</p>
+          {price && <p>{price.toLocaleString("en-US")}</p>}
         </div>
         <IconRadio>
           <MdCheck />
