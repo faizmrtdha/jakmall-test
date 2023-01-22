@@ -5,5 +5,5 @@ export const StyledStepProgress = styled.div`
   width: 500px;
   border-radius: 35px;
   background: #fffae6;
-  margin: auto;
+  transform: translateY(35px);
 `
