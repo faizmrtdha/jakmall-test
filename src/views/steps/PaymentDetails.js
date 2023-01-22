@@ -1,22 +1,25 @@
 import FormRadioButton from "components/input/FormRadioButton"
 import React from "react"
 import { getStorage, setStorage } from "utils/helper"
-import { PaymentDetailsContainer, SelectorWrapper, ShipmentSelectorWrapper } from "./Steps.styled"
+import { HeaderPaymentSection, PaymentDetailsContainer, SelectorWrapper } from "./Steps.styled"
 
 const listShipment = [
-  { label: "GO-SEND", price: 15000 },
-  { label: "JNE", price: 9000 },
-  { label: "Personal Courier", price: 29000 },
+  { label: "GO-SEND", price: 15000, estimation: "today" },
+  { label: "JNE", price: 9000, estimation: "2 days" },
+  { label: "Personal Courier", price: 29000, estimation: "1 day" },
 ]
 
 const listPayment = [
   { label: "e-Wallet", price: "1,500,000 left" },
-  { label: "Bank Transfer", price: 1500000 },
-  { label: "Virtual Account", price: 1500000 },
+  { label: "Bank Transfer" },
+  { label: "Virtual Account" },
 ]
 
 const PaymentDetails = (props) => {
   const { dataStep2, setDataStep2, shipmentForm } = props
+  const {
+    formState: { errors },
+  } = shipmentForm
   const formData = JSON.parse(getStorage("formData"))
 
   const onClickShipment = ({ target: { value } }) => {
@@ -34,7 +37,9 @@ const PaymentDetails = (props) => {
   return (
     <PaymentDetailsContainer>
       <form>
-        <h1>Shipment</h1>
+        <HeaderPaymentSection>
+          <h1>Shipment</h1>
+        </HeaderPaymentSection>
         <SelectorWrapper>
           {listShipment.map((shipmentItem) => (
             <FormRadioButton
@@ -46,8 +51,11 @@ const PaymentDetails = (props) => {
               {...shipmentItem}
             />
           ))}
+          {errors.shipment && <p role="alert">{errors.shipment.message}</p>}
         </SelectorWrapper>
-        <h1>Payment</h1>
+        <HeaderPaymentSection>
+          <h1>Payment</h1>
+        </HeaderPaymentSection>
         <SelectorWrapper>
           {listPayment.map((paymentItem) => (
             <FormRadioButton
@@ -59,6 +67,7 @@ const PaymentDetails = (props) => {
               {...paymentItem}
             />
           ))}
+          {errors.payment && <p role="alert">{errors.payment.message}</p>}
         </SelectorWrapper>
       </form>
     </PaymentDetailsContainer>
