@@ -22,6 +22,7 @@ export const FormTextAreaStyled = styled.div`
     font-weight: 500;
     transform-origin: 0% 0%;
     padding-left: 15px;
+    pointer-events: none;
   }
 
   textarea {
@@ -36,7 +37,6 @@ export const FormTextAreaStyled = styled.div`
     height: 120px;
     overflow: auto;
     padding: 30px 15px 0 15px;
-    z-index: 1;
     font-family: "Inter", sans-serif;
   }
 
@@ -66,7 +66,6 @@ export const FormTextAreaStyled = styled.div`
   textarea:not(:placeholder-shown) ~ .label {
     top: 12px;
     font-size: 13px;
-    z-index: 2;
   }
 
   textarea:required,
