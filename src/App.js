@@ -1,19 +1,13 @@
 import React from "react"
-import styled from "styled-components"
-import Steps from "./Steps"
-
-const StyledApp = styled.div`
-  background: #fffae6;
-  height: 100%;
-  width: 100%;
-  font-family: "Montserrat, Inter";
-`
+import GlobalStyles from "styles/Global"
+import Steps from "views/steps/Steps"
 
 function App() {
   return (
-    <StyledApp>
+    <div className="app">
+      <GlobalStyles />
       <Steps />
-    </StyledApp>
+    </div>
   )
 }
 
