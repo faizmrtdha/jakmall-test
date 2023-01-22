@@ -3,7 +3,7 @@ import { getWidthString } from "utils/helper"
 
 export const Column = styled.div`
   display: block;
-  ${({ xs }) => (xs ? getWidthString(xs) : `flex:0 0 100%;max-width: 100%`)}
+  ${({ xs }) => (xs ? getWidthString(xs) : `flex:0 0 100%;max-width: 100%;}`)}
 
   @media only screen and (min-width: 768px) {
     ${({ sm }) => sm && getWidthString(sm)}
