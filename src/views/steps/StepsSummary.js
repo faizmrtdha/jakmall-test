@@ -13,14 +13,14 @@ import {
 } from "./StepsSummary.styled"
 
 const Action = (props) => {
-  const { gatherDelivery, currentStep, deliveryForm, shipmentForm, gatherShipment } = props
+  const { nextStep, currentStep, deliveryForm, shipmentForm } = props
   const { handleSubmit: handleDelivery } = deliveryForm
   const { handleSubmit: handleShipment } = shipmentForm
 
   const clickNext = () => {
     if (currentStep === 0) {
-      handleDelivery(gatherDelivery)()
-    } else if (currentStep === 1) handleShipment(gatherShipment)()
+      handleDelivery(nextStep)()
+    } else if (currentStep === 1) handleShipment(nextStep)()
   }
 
   return (

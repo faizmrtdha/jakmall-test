@@ -40,23 +40,14 @@ const Steps = () => {
   const [dataStep2, setDataStep2] = useState({ shipment: false, payment: false })
   const [finalPrice, setFinalPrice] = useState(false)
 
-  const gatherDelivery = (data) => {
-    console.log(data)
-    setCurrentStep(currentStep + 1)
-  }
-
-  const gatherShipment = (data) => {
-    console.log(data)
-    setCurrentStep(currentStep + 1)
-  }
+  const nextStep = () => setCurrentStep(currentStep + 1)
 
   const forms = { deliveryForm, shipmentForm }
   const states = { dataStep1, setDataStep1, dataStep2, setDataStep2 }
   const props = {
     ...forms,
     ...states,
-    gatherDelivery,
-    gatherShipment,
+    nextStep,
     currentStep,
     finalPrice,
     setFinalPrice,

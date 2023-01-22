@@ -24,7 +24,6 @@ const DeliveryDetails = (props) => {
   } = deliveryForm
 
   const handleCheckboxChange = (e) => {
-    console.log(e.target.checked)
     setDataStep1({ ...dataStep1, tncDropshipper: e.target.checked })
   }
 
