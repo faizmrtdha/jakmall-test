@@ -4,7 +4,6 @@ import { BodySection, FinishContainter, HeaderSection } from "./Steps.styled"
 
 const FinishStep = (props) => {
   const { dataStep2 } = props
-  console.log(dataStep2)
   const randomOrderID = () => {
     const randomId = Math.random().toString(36).slice(2, 7).split("")
     let id = randomId
