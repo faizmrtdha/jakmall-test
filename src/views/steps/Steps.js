@@ -67,11 +67,11 @@ const Steps = () => {
       </StyledStepProgress>
       <StepContentContainer>
         <Row>
-          <Column lg="8">
+          <Column md="8">
             <BackButton {...props} />
             <StepContent>{stepItem[currentStep].content}</StepContent>
           </Column>
-          <Column lg="4">
+          <Column md="4">
             <StepsSummary {...props} />
           </Column>
         </Row>
