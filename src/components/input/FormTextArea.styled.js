@@ -49,16 +49,12 @@ export const FormTextAreaStyled = styled.div`
     top: 20px;
   }
 
-  textarea:focus {
-    /* border-color: ${(props) => (props.valid ? "#1BD97B" : "#FF8A00")}; */
-  }
-
   textarea:focus ~ .label {
     position: absolute;
     top: 12px;
     display: block;
     transition: 0.2s;
-    /* color: ${(props) => (props.valid ? "#1BD97B" : "#ffcc70")}; */
+    color: ${(props) => (props.validation ? "#ffcc70" : "#1BD97B")};
     margin-bottom: 2px;
     font-size: 13px;
   }
