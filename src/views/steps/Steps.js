@@ -26,6 +26,7 @@ const BackButton = (props) => {
 const Steps = () => {
   const savedDelivery = JSON.parse(getStorage("formData"))
   const deliveryForm = useForm({
+    mode: "onBlur",
     defaultValues: {
       email: savedDelivery?.email,
       phoneNumber: savedDelivery?.phoneNumber,
