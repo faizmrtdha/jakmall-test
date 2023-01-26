@@ -6,7 +6,7 @@ import { setStorage } from "utils/helper"
 
 const IconValidation = ({ valid, value }) => {
   if (value)
-    return <Icon color={valid ? "#1BD97B" : "#FF8A00"}>{valid ? <MdCheck /> : <MdClear />}</Icon>
+    return <Icon color={valid ? "#FF8A00" : "#1BD97B"}>{valid ? <MdClear /> : <MdCheck />}</Icon>
   return ""
 }
 
@@ -20,14 +20,12 @@ const FormInput = ({ form, label, rules, name, ...props }) => {
   }
 
   return (
-    <FormInputStyled {...props}>
+    <FormInputStyled value={valueName} {...props}>
       <input
         {...register(name, { ...rules, onChange: onChangeInput })}
-        valueinput={valueName}
         disabled={
           (name === "dropshipperName" || name === "dropshipperPhoneNumber") && props.disabled
         }
-        validation={props.validation}
         {...props}
       />
       <div className="label">{label}</div>

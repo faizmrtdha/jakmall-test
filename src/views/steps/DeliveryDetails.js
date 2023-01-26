@@ -51,7 +51,7 @@ const DeliveryDetails = (props) => {
               name="email"
               label="Email"
               placeholder="Email"
-              validation={errors.email ? "false" : "true"}
+              validation={errors.email}
             />
             {errors.email && <p role="alert">{errors.email.message}</p>}
             <FormInput
@@ -66,7 +66,7 @@ const DeliveryDetails = (props) => {
               name="phoneNumber"
               label="Phone Number"
               placeholder="Phone Number"
-              validation={errors.phoneNumber ? "false" : "true"}
+              validation={errors.phoneNumber}
             />
             {errors.phoneNumber && <p role="alert">{errors.phoneNumber.message}</p>}
             <FormTextArea
@@ -76,7 +76,7 @@ const DeliveryDetails = (props) => {
               maxLength={120}
               label="Delivery Address"
               placeholder="Delivery Address"
-              validation={errors.address ? "false" : "true"}
+              validation={errors.address}
             />
             {errors.address && <p role="alert">{errors.address.message}</p>}
           </div>

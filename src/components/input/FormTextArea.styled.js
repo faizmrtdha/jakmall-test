@@ -54,7 +54,7 @@ export const FormTextAreaStyled = styled.div`
     top: 12px;
     display: block;
     transition: 0.2s;
-    color: ${(props) => (props.validation ? "#ffcc70" : "#1BD97B")};
+    color: ${(props) => (props.value ? (props.validation ? "#1BD97B" : "#ffcc70") : "inherit")};
     margin-bottom: 2px;
     font-size: 13px;
   }
@@ -62,6 +62,7 @@ export const FormTextAreaStyled = styled.div`
   textarea:not(:placeholder-shown) ~ .label {
     top: 12px;
     font-size: 13px;
+    color: ${(props) => (props.value ? (props.validation ? "#ffcc70" : "#1BD97B") : "inherit")};
   }
 
   textarea:required,
